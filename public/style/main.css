@@ -1,0 +1,88 @@
+/* styles.css */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+header {
+  background-color: #1e1e2f;
+  color: #fff;
+  padding: 1rem 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+header h1 {
+  margin: 0;
+  display: inline;
+}
+
+.container ul {
+  list-style: none;
+  padding: 0;
+  display: inline;
+  float: right;
+}
+
+.container ul li {
+  display: inline;
+  margin-left: 20px;
+}
+
+.container ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.hero {
+  background-color: #282c34;
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.hero .btn {
+  background-color: #61dafb;
+  width: 300px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 5px 20px;
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.features {
+  padding: 40px 20px;
+  background-color: #fff;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.features:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+footer {
+  background-color: #1e1e2f;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 40px;
+}

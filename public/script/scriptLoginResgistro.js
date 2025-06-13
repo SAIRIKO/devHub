@@ -92,4 +92,4 @@ let modoCadastro = false;
       }
       emailInput.value = "";
       senhaInput.value = "";
-      }
+      };
