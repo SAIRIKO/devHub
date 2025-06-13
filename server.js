@@ -73,7 +73,7 @@ app.post('/api/login', loginLimiter, (req, res) => {
     const valido = await bcrypt.compare(senha, row.senha);
     if (valido) {
       const token = jwt.sign({ id: row.id, nome: row.nome }, JWT_SECRET, { expiresIn: '1h' });
-      res.json({ sucesso: true, token });
+      res.json({ sucesso: true, token, nome: row.nome });
     } else {
       res.status(401).json({ erro: "Senha incorreta." });
     }

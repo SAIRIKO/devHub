@@ -33,8 +33,7 @@ let modoCadastro = false;
 
     function enviarFormulario() {
 
-      const spinner = document.getElementById("spinner");
-      spinner.style.display = "block";
+      console.log("Modo cadastro:", modoCadastro);
       const emailInput = document.getElementById("email");
       const senhaInput = document.getElementById("senha");
       const nome = document.getElementById("nome").value.trim();
@@ -84,6 +83,9 @@ let modoCadastro = false;
         .then(data => {
           if (data.sucesso) {
             alert(`Bem-vindo de volta, ${data.nome}!`);
+            localStorage.setItem('token', data.token);
+            localStorage.setItem('nomeUsuario', data.nome || '');
+            window.location.href = 'index.html';
           } else {
             alert(data.erro || 'Erro ao fazer login.');
             senhaInput.classList.add("error-input");
