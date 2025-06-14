@@ -19,15 +19,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Rate limiting para login
 const loginLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutos
-  max: 5, // Limite de 5 tentativas
+  windowMs: 15 * 60 * 1000,
+  max: 5,
   message: 'Muitas tentativas de login. Tente novamente em 15 minutos.'
 });
 
 // Rate limiting para API DeepSeek
 const apiLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutos
-  max: 50, // Limite de 50 requisições por IP
+  windowMs: 15 * 60 * 1000,
+  max: 50,
   message: 'Muitas requisições à API. Tente novamente mais tarde.'
 });
 
@@ -78,7 +78,7 @@ app.post('/api/usuarios', async (req, res) => {
   }
 });
 
-// Login com proteção e JWT
+// Login com JWT
 app.post('/api/login', loginLimiter, (req, res) => {
   const { email, senha } = req.body;
   if (!email || !senha) {
@@ -100,8 +100,8 @@ app.post('/api/login', loginLimiter, (req, res) => {
   });
 });
 
-// Rota para chamar a API da DeepSeek (protegida por JWT e rate limiting)
-app.post('/api/ask-deepseek', async (req, res) => {
+// API DeepSeek
+app.post('/api/ask-deepseek', apiLimiter, async (req, res) => {
   try {
     const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
@@ -116,17 +116,10 @@ app.post('/api/ask-deepseek', async (req, res) => {
         messages: [{ role: 'user', content: req.body.prompt }]
       })
     });
-<<<<<<< HEAD
 
     const data = await response.json();
     res.json({ resposta: data.choices[0].message.content });
 
-=======
-    
-    const data = await response.json();
-    res.json({ resposta: data.choices[0].message.content });
-    
->>>>>>> 31a004dbaf180c6417f87a761e853c69d18f76c4
   } catch (error) {
     res.status(500).json({ erro: error.message });
   }
@@ -137,20 +130,11 @@ app.get('/', (req, res) => {
   res.send('Servidor rodando! Use POST /api/deepseek para chamar a API.');
 });
 
-<<<<<<< HEAD
-module.exports = app;
-
 // Inicia o servidor
 if (require.main === module) {
-  app.listen(3000, () => {
-    console.log("Servidor rodando em http://localhost:3000");
+  app.listen(PORT, () => {
+    console.log(`Servidor rodando em http://localhost:${PORT}`);
   });
 }
 
 module.exports = { app, emailValido, autenticarToken };
-=======
-// Inicia o servidor
-app.listen(PORT, () => {
-  console.log(`Servidor rodando em http://localhost:${PORT}`);
-});
->>>>>>> 31a004dbaf180c6417f87a761e853c69d18f76c4
