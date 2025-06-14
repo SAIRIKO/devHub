@@ -116,10 +116,17 @@ app.post('/api/ask-deepseek', async (req, res) => {
         messages: [{ role: 'user', content: req.body.prompt }]
       })
     });
+<<<<<<< HEAD
 
     const data = await response.json();
     res.json({ resposta: data.choices[0].message.content });
 
+=======
+    
+    const data = await response.json();
+    res.json({ resposta: data.choices[0].message.content });
+    
+>>>>>>> 31a004dbaf180c6417f87a761e853c69d18f76c4
   } catch (error) {
     res.status(500).json({ erro: error.message });
   }
@@ -130,6 +137,7 @@ app.get('/', (req, res) => {
   res.send('Servidor rodando! Use POST /api/deepseek para chamar a API.');
 });
 
+<<<<<<< HEAD
 module.exports = app;
 
 // Inicia o servidor
@@ -140,3 +148,9 @@ if (require.main === module) {
 }
 
 module.exports = { app, emailValido, autenticarToken };
+=======
+// Inicia o servidor
+app.listen(PORT, () => {
+  console.log(`Servidor rodando em http://localhost:${PORT}`);
+});
+>>>>>>> 31a004dbaf180c6417f87a761e853c69d18f76c4
