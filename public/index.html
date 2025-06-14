@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="style/main.css">
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <h1>DevHub</h1>
+      <nav>
+        <ul>
+          <li><a href="#forum">Fórum</a></li>
+          <li><a href="#noticias">Notícias</a></li>
+          <li><a href="#cursos">Cursos</a></li>
+          <li><a href="#chatbot">Chatbot</a></li>
+          <li><a href="loginRegistro.html">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h2>Conecte-se, Aprenda e Compartilhe</h2>
+        <p>O DevHub é a plataforma ideal para desenvolvedores e entusiastas de tecnologia trocarem experiências,
+          acessarem cursos gratuitos e se manterem atualizados com as tendências do setor.</p>
+        <a href="WloginRegistro.html" class="btn">Cadastre-se</a>
+      </div>
+    </section>
+
+    <section id="forum" class="features">
+      <div class="container">
+        <h3>Fórum Interativo</h3>
+        <p>Participe de discussões, tire dúvidas e compartilhe conhecimento com a comunidade.</p>
+      </div>
+    </section>
+
+    <section id="noticias" class="features">
+      <div class="container">
+        <h3>Notícias Atualizadas</h3>
+        <p>Fique por dentro das novidades em tecnologia com nosso portal de notícias automático.</p>
+      </div>
+    </section>
+
+    <section id="cursos" class="features">
+      <div class="container">
+        <h3>Cursos Gratuitos</h3>
+        <p>Aprenda novas habilidades com conteúdos integrados ao YouTube, personalizados para você.</p>
+      </div>
+    </section>
+
+    <section id="chatbot" class="features">
+      <div class="chat-container">
+        <div class="chat-messages" id="response"></div>
+
+        <button id="clearButton" class="hidden">Limpar Conversa</button>
+
+        <div class="chat-input-container">
+          <input type="text" id="userInput" placeholder="Digite sua mensagem...">
+          <button id="sendButton" onclick="sendMessage()">Enviar</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 DevHub - Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="script/chatbot.js"></script>
+</body>
+
+</html>
