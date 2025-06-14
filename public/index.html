@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-<link rel="stylesheet" href="style/main.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="style/main.css">
 </head>
+
 <body>
-    <header>
+  <header>
     <div class="container">
       <h1>DevHub</h1>
       <nav>
@@ -26,7 +28,8 @@
     <section class="hero">
       <div class="container">
         <h2>Conecte-se, Aprenda e Compartilhe</h2>
-        <p>O DevHub é a plataforma ideal para desenvolvedores e entusiastas de tecnologia trocarem experiências, acessarem cursos gratuitos e se manterem atualizados com as tendências do setor.</p>
+        <p>O DevHub é a plataforma ideal para desenvolvedores e entusiastas de tecnologia trocarem experiências,
+          acessarem cursos gratuitos e se manterem atualizados com as tendências do setor.</p>
         <a href="WloginRegistro.html" class="btn">Cadastre-se</a>
       </div>
     </section>
@@ -53,9 +56,15 @@
     </section>
 
     <section id="chatbot" class="features">
-      <div class="container">
-        <h3>Suporte com IA</h3>
-        <p>Utilize nosso chatbot inteligente para esclarecer dúvidas técnicas e receber sugestões de estudo.</p>
+      <div class="chat-container">
+        <div class="chat-messages" id="response"></div>
+
+        <button id="clearButton" class="hidden">Limpar Conversa</button>
+
+        <div class="chat-input-container">
+          <input type="text" id="userInput" placeholder="Digite sua mensagem...">
+          <button id="sendButton" onclick="sendMessage()">Enviar</button>
+        </div>
       </div>
     </section>
   </main>
@@ -66,6 +75,7 @@
     </div>
   </footer>
 
-  <script src="script/scriptHome.js"></script>
+  <script src="script/chatbot.js"></script>
 </body>
+
 </html>
